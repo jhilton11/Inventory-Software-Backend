@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://localhost/Inventory', { useNewUrlParser:true });
+mongoose.connect('mongodb+srv://admin:adminpassword@cluster0.xx0ls.mongodb.net/inventory?retryWrites=true&w=majority', { useNewUrlParser:true, useUnifiedTopology: true });
 const app = express();
 const port = process.env.port || 4000;
 
@@ -18,6 +18,7 @@ const db = mongoose.connection;
 db.once('open', ()=> {
     console.log('Database connected!')
     app.listen( port, ()=> {
+        console.log('Everything dey alright ooo');
         console.log(`I don dey ooo on port  + ${port}`);
     } );
 } );
