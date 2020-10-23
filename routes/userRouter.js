@@ -7,6 +7,7 @@ function userRouter (User) {
         .get( (req, res) => {
             User.find( (err, users) => {
                 if (err) {
+                    console.log(`There was an error: ${err}`);
                     return res.status(400).json(err);
                 }
 
